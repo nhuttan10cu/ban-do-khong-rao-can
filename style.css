@@ -886,3 +886,132 @@ main a:not(.map-button):hover {
         scroll-behavior: auto !important;
     }
 }
+
+/* ===== CỬA SỔ THÔNG BÁO GIỮA MÀN HÌNH ===== */
+
+.feedback-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(9, 35, 24, 0.68);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.feedback-overlay[hidden] {
+    display: none !important;
+}
+
+.feedback-card {
+    position: relative;
+    width: min(100%, 480px);
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 0;
+    padding: 35px 28px;
+    border: 1px solid #d7eadc;
+    border-radius: 24px;
+    background: #ffffff;
+    color: #24352e;
+    text-align: center;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.28);
+    animation: modalPop 0.4s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.feedback-card .feedback-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #dcf7e5;
+    font-size: 44px;
+    animation: iconPop 0.5s ease 0.1s both;
+}
+
+.feedback-card h2 {
+    margin: 10px 0;
+    color: #155b43;
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+
+.feedback-card p {
+    color: #4b5d54;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+#closeFeedback {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 18px;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #176b49, #269764);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#closeFeedback:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(23, 107, 73, 0.25);
+}
+
+#closeFeedback:focus-visible {
+    outline: 3px solid #e2a928;
+    outline-offset: 4px;
+}
+
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes iconPop {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-15deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .feedback-card {
+        padding: 28px 20px;
+        border-radius: 20px;
+    }
+
+    .feedback-card h2 {
+        font-size: 1.35rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .feedback-card,
+    .feedback-card .feedback-icon {
+        animation: none;
+    }
+
+    #closeFeedback {
+        transition: none;
+    }
+}
