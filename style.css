@@ -634,3 +634,255 @@ nav a {
         transform: none;
     }
 }
+
+/* =========================================
+   HIỆU ỨNG NÂNG CẤP - BẢN ĐỒ KHÔNG RÀO CẢN
+   ========================================= */
+
+/* Nền có chiều sâu */
+body {
+    background:
+        radial-gradient(ellipse at top left, #d9f5e4 0%, transparent 42%),
+        linear-gradient(135deg, #f4fbf6, #e8f3ec);
+}
+
+/* Tiêu đề nổi bật */
+header {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #104d37, #21865b, #32a66e);
+    background-size: 200% 200%;
+    animation: gradientMove 7s ease infinite;
+    box-shadow: 0 8px 28px rgba(16, 77, 55, 0.25);
+}
+
+header h1 {
+    animation: titleEnter 0.9s cubic-bezier(.2, .8, .2, 1) both;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+    animation: subtitleEnter 1s ease 0.2s both;
+}
+
+/* Menu mượt mà */
+nav a {
+    position: relative;
+    transition: color 0.25s ease,
+                background-color 0.25s ease,
+                transform 0.25s ease;
+}
+
+nav a:hover {
+    transform: translateY(-3px);
+    background-color: #d9f3e3;
+    color: #104d37;
+}
+
+nav a.active {
+    background: #d9f3e3;
+    color: #104d37;
+    font-weight: 700;
+}
+
+/* Khung nội dung */
+main {
+    animation: contentEnter 0.8s ease-out both;
+}
+
+/* Thẻ chức năng nổi bật */
+.feature-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff, #f0faf3);
+    border: 1px solid #d2e9d9;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(20, 80, 50, 0.07);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #168653, #7ed9a5);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-9px) scale(1.015);
+    box-shadow: 0 18px 35px rgba(20, 80, 50, 0.16);
+    border-color: #7bc99b;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    border-radius: 18px;
+    background: #ddf5e5;
+    font-size: 32px;
+    transition: transform 0.3s ease,
+                background-color 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: rotate(-7deg) scale(1.12);
+    background: #c5efd3;
+}
+
+.feature-card h3 {
+    color: #155b43;
+}
+
+/* Nút bấm rõ ràng, dễ nhận biết */
+.home-actions a,
+.map-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 52px;
+    padding: 13px 23px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #176b49, #269764);
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(23, 107, 73, 0.22);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background-color 0.25s ease;
+}
+
+.home-actions a:hover,
+.map-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(23, 107, 73, 0.3);
+}
+
+.home-actions a:active,
+.map-button:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* Nút phụ vẫn dễ nhìn */
+.home-actions .home-secondary {
+    background: #ffffff;
+    color: #176b49;
+    border-color: #21865b;
+    box-shadow: none;
+}
+
+.home-actions .home-secondary:hover {
+    background: #e2f6e9;
+}
+
+/* Hộp lưu ý */
+.home-note,
+.map-note {
+    padding: 18px 20px;
+    border-left: 5px solid #dba72f;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #fff8e8, #fffdf6);
+    box-shadow: 0 5px 15px rgba(90, 70, 20, 0.06);
+}
+
+/* Đường dẫn trong nội dung */
+main a:not(.map-button) {
+    color: #176b49;
+    font-weight: 700;
+    text-underline-offset: 4px;
+}
+
+main a:not(.map-button):hover {
+    color: #0b422c;
+    text-decoration-thickness: 2px;
+}
+
+/* Hiệu ứng chuyển động */
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes titleEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-25px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes subtitleEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contentEnter {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Điện thoại */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .home-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .home-actions a {
+        width: 100%;
+        min-height: 52px;
+    }
+
+    .feature-card {
+        border-radius: 14px;
+    }
+}
+
+/* Tôn trọng người dùng cần giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
