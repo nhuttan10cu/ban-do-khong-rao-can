@@ -4,41 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bản đồ hỗ trợ tìm hiểu khả năng tiếp cận cho người sử dụng xe lăn quanh trường THPT Mang Thít.">
     <title>Bản đồ không rào cản</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a href="#noi-dung" class="skip-link">Bỏ qua phần menu, đến nội dung chính</a>
+
     <header>
         <h1>Bản đồ không rào cản</h1>
         <p>Cùng xây dựng môi trường dễ tiếp cận cho mọi người</p>
     </header>
 
-    <nav>
-        <a href="index.html" class="active">Trang chủ</a>
+    <nav aria-label="Menu chính">
+        <a href="index.html" class="active" aria-current="page">Trang chủ</a>
         <a href="ban-do.html">Bản đồ tương tác</a>
         <a href="phan-anh.html">Gửi phản ánh</a>
     </nav>
 
-    <main>
-        <h2>Khám phá dự án</h2>
+    <main id="noi-dung">
+        <section class="home-intro">
+            <h2>Chào mừng bạn đến với dự án!</h2>
 
-        <p>
-            Website ghi nhận thông tin về khả năng tiếp cận
-            dành cho người sử dụng xe lăn tại khu vực quanh
-            trường THPT Mang Thít.
-        </p>
+            <p>
+                Đây là website hỗ trợ tìm hiểu khả năng tiếp cận
+                dành cho người sử dụng xe lăn tại khu vực quanh
+                trường THPT Mang Thít.
+            </p>
 
-        <h2>Ba chức năng chính</h2>
+            <p>
+                Chúng tôi mong muốn giúp mọi người dễ dàng nhận biết
+                các địa điểm thuận tiện và những nơi có thể còn rào cản.
+                Thông tin cần được kiểm tra thực tế trước khi sử dụng.
+            </p>
 
-        <ul>
-            <li>Trang chủ</li>
-            <li>Bản đồ tương tác</li>
-            <li>Gửi phản ánh rào cản</li>
-        </ul>
+            <div class="home-actions">
+                <a href="ban-do.html" class="map-button">
+                    🗺️ Xem bản đồ
+                </a>
+
+                <a href="phan-anh.html" class="map-button home-secondary">
+                    📝 Gửi phản ánh
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Ba chức năng chính</h2>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🏠</div>
+                    <h3>Trang chủ</h3>
+                    <p>
+                        Tìm hiểu mục đích và cách sử dụng website.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🗺️</div>
+                    <h3>Bản đồ tương tác</h3>
+                    <p>
+                        Xem các địa điểm và thông tin tiếp cận
+                        đã được ghi nhận trên bản đồ.
+                    </p>
+                    <a href="ban-do.html">Mở bản đồ</a>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">📝</div>
+                    <h3>Gửi phản ánh</h3>
+                    <p>
+                        Cung cấp thông tin về địa điểm hoặc rào cản
+                        cần được kiểm tra.
+                    </p>
+                    <a href="phan-anh.html">Gửi thông tin</a>
+                </article>
+            </div>
+        </section>
+
+        <aside class="home-note">
+            <strong>📌 Lưu ý:</strong>
+            Thông tin trên bản đồ chỉ mang tính tham khảo.
+            Bạn nên xác minh điều kiện thực tế trước khi di chuyển.
+        </aside>
     </main>
 
     <footer>
-        Dự án Bản đồ không rào cản | THPT Mang Thít
+        <p>Dự án Bản đồ không rào cản | THPT Mang Thít</p>
     </footer>
 </body>
 </html>
