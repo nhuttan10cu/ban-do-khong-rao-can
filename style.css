@@ -472,3 +472,221 @@ select:focus-visible {
         min-height: 50px;
     }
 }
+
+/* ======================================
+   BAN DO KHONG RAO CAN - GIAO DIEN MOI
+   ====================================== */
+
+:root {
+    --green-dark: #155b43;
+    --green-main: #217a55;
+    --green-light: #eaf5ee;
+    --text-main: #24352e;
+    --text-muted: #4b5d54;
+    --border-soft: #d7e6dc;
+    --shadow-soft: 0 8px 24px rgba(25, 65, 45, 0.09);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--text-main);
+    background: #f5f9f6;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+header {
+    background: linear-gradient(135deg, #124b38, #27845b);
+    color: white;
+    padding: 38px 20px;
+}
+
+header h1 {
+    line-height: 1.3;
+    letter-spacing: -0.4px;
+}
+
+header p {
+    line-height: 1.7;
+}
+
+nav {
+    gap: 8px;
+    padding: 12px;
+    background: white;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background-color 0.2s ease,
+                color 0.2s ease;
+}
+
+nav a:hover {
+    background: var(--green-light);
+    color: var(--green-dark);
+}
+
+nav a.active {
+    background: var(--green-dark);
+    color: white;
+}
+
+main {
+    background: white;
+    border: 1px solid #e2ece5;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    padding: clamp(20px, 4vw, 36px);
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+h2,
+h3 {
+    color: var(--green-dark);
+    line-height: 1.4;
+}
+
+p,
+li {
+    line-height: 1.8;
+}
+
+a {
+    overflow-wrap: anywhere;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+.map-button {
+    min-height: 50px;
+}
+
+button,
+.map-button,
+nav a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+.map-button {
+    transition: background-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+button:hover,
+.map-button:hover {
+    transform: translateY(-2px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #bd8210;
+    outline-offset: 4px;
+}
+
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+footer {
+    padding: 24px 16px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* Hieu ung xuat hien nhe */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    animation: fadeInUp 0.45s ease-out both;
+}
+
+/* Toi uu cho dien thoai */
+@media (max-width: 600px) {
+    body {
+        font-size: 17px;
+    }
+
+    header {
+        padding: 28px 16px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 10px 12px;
+    }
+
+    main {
+        margin: 16px 10px;
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+
+    .map-frame iframe {
+        height: 420px;
+    }
+
+    .map-button {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* Ton trong nguoi khong muon hieu ung chuyen dong */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
