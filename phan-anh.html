@@ -164,36 +164,50 @@
 
     <script>
        
+
 const form = document.getElementById("reportForm");
+const feedbackOverlay = document.getElementById("feedbackOverlay");
 const feedbackBox = document.getElementById("feedbackBox");
 const feedbackTitle = document.getElementById("feedbackTitle");
 const feedbackMessage = document.getElementById("feedbackMessage");
 const closeFeedback = document.getElementById("closeFeedback");
 
+const submitButton = form.querySelector('button[type="submit"]');
+
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    feedbackBox.hidden = false;
-
-    feedbackTitle.textContent = "Bạn đã điền xong biểu mẫu!";
+    feedbackTitle.textContent = "Bạn đã điền xong biểu mẫu! 🎉";
     feedbackMessage.textContent =
         "Cảm ơn bạn đã cung cấp thông tin. " +
         "Đây là bản thử nghiệm nên phản ánh chưa được gửi " +
         "hoặc lưu trực tuyến. Bạn có thể đóng thông báo " +
-        "hoặc kiểm tra lại thông tin đã nhập.";
+        "để quay lại biểu mẫu.";
 
-    feedbackBox.scrollIntoView({
-        behavior: "auto",
-        block: "center"
-    });
-
-    feedbackBox.focus();
+    feedbackOverlay.hidden = false;
+    closeFeedback.focus();
 });
 
-closeFeedback.addEventListener("click", function() {
-    feedbackBox.hidden = true;
+function closeModal() {
+    feedbackOverlay.hidden = true;
+    submitButton.focus();
+}
+
+closeFeedback.addEventListener("click", closeModal);
+
+// Bấm vào vùng tối bên ngoài hộp để đóng
+feedbackOverlay.addEventListener("click", function(event) {
+    if (event.target === feedbackOverlay) {
+        closeModal();
+    }
 });
 
+// Nhấn phím Escape để đóng
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape" && !feedbackOverlay.hidden) {
+        closeModal();
+    }
+});
     </script>
 </body>
 </html>
