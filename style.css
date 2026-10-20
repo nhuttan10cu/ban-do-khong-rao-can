@@ -1,46 +1,142 @@
 
-/* Cai dat chung cho toan bo trang web */
+/* ==========================================
+   BAN DO KHONG RAO CAN
+   CSS GON GANG - DE DOC - DE SU DUNG
+   ========================================== */
+
+/* 1. Mau sac va cai dat chung */
+:root {
+    --green-dark: #155b43;
+    --green-main: #217a55;
+    --green-light: #eaf5ee;
+    --text-main: #24352e;
+    --text-muted: #4b5d54;
+    --border-soft: #d7e6dc;
+    --white: #ffffff;
+    --warning-bg: #fff8e8;
+    --warning-border: #dba72f;
+    --shadow-soft: 0 8px 24px rgba(25, 65, 45, 0.09);
+}
+
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f1f6fa;
-    color: #203449;
-    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--text-main);
+    background: #f5f9f6;
 }
 
-/* Thanh tieu de */
-header {
-    background-color: #12304a;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Tieu de chinh */
+a {
+    overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.4;
+}
+
 h1 {
     margin: 0;
-    font-size: 32px;
+    font-size: clamp(28px, 4vw, 40px);
+    letter-spacing: -0.4px;
 }
 
-/* Noi dung chinh */
+h2,
+h3 {
+    color: var(--green-dark);
+}
+
+p,
+li {
+    line-height: 1.8;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* 2. Dau trang */
+header {
+    padding: 38px 20px;
+    text-align: center;
+    color: var(--white);
+    background: linear-gradient(135deg, #124b38, #27845b);
+}
+
+header p {
+    margin: 10px 0 0;
+    color: #f0faf3;
+    line-height: 1.7;
+}
+
+/* 3. Thanh dieu huong */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border-soft);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    color: var(--text-main);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--green-dark);
+    background: var(--green-light);
+}
+
+nav a.active {
+    color: var(--white);
+    background: var(--green-dark);
+}
+
+/* 4. Noi dung chinh */
 main {
-    max-width: 850px;
-    margin: 30px auto;
-    padding: 25px;
-    background-color: white;
-    border-radius: 14px;
+    width: calc(100% - 32px);
+    max-width: 1000px;
+    margin: 28px auto;
+    padding: clamp(20px, 4vw, 36px);
+    background: var(--white);
+    border: 1px solid #e2ece5;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    animation: fadeInUp 0.4s ease-out both;
 }
 
-/* Tieu de phu */
-h2 {
-    color: #167d91;
-}
-
-/* Danh sach chuc nang */
 ul {
     padding-left: 25px;
 }
@@ -49,82 +145,102 @@ li {
     margin-bottom: 8px;
 }
 
-/* Chan trang */
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #64748b;
+/* 5. Nut bam */
+button,
+.map-button {
+    min-height: 50px;
 }
 
-/* Thanh menu dieu huong */
-nav {
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-/* Tung muc trong menu */
-nav a {
-    color: #203449;
-    text-decoration: none;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-/* Khi di chuot vao menu */
-nav a:hover {
-    background-color: #e1f5f2;
-    color: #167d91;
-}
-
-/* Muc dang duoc chon */
-nav a.active {
-    background-color: #167d91;
-    color: white;
-}
-
-/* Hieu ung khi di chuyen tren cac muc menu */
-nav a {
+button,
+.map-button {
     transition: background-color 0.2s ease,
-                color 0.2s ease,
+                box-shadow 0.2s ease,
                 transform 0.2s ease;
 }
 
-nav a:hover {
+.map-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 50px;
+    margin-top: 14px;
+    padding: 12px 20px;
+    border: 2px solid var(--green-dark);
+    border-radius: 10px;
+    color: var(--white);
+    background: var(--green-dark);
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.map-button:hover {
+    color: var(--white);
+    background: #104a36;
+    box-shadow: 0 5px 14px rgba(23, 107, 80, 0.18);
     transform: translateY(-2px);
 }
 
-/* Hieu ung cho cac o nhap lieu */
+/* 6. Hieu ung khi chon bang ban phim */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #bd8210;
+    outline-offset: 4px;
+}
+
+/* 7. Form phan anh */
+.report-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
 .report-form input,
 .report-form select,
 .report-form textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 48px;
+    padding: 12px;
+    border: 1px solid #9eafa4;
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--text-main);
     transition: border-color 0.2s ease,
                 box-shadow 0.2s ease;
 }
 
-/* Lam noi bat o dang duoc nhap */
+.report-form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
 .report-form input:focus,
 .report-form select:focus,
 .report-form textarea:focus {
-    outline: 3px solid #b8e5e8;
+    border-color: var(--green-dark);
+    outline: 3px solid #c8e7d5;
     outline-offset: 2px;
-    border-color: #167d91;
 }
 
-/* Hieu ung nut bam */
 .report-form button {
-    min-height: 48px;
-    transition: background-color 0.2s ease,
-                transform 0.15s ease;
+    min-height: 50px;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 10px;
+    color: var(--white);
+    background: var(--green-dark);
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .report-form button:hover {
+    background: #104a36;
     transform: translateY(-2px);
 }
 
@@ -132,41 +248,229 @@ nav a:hover {
     transform: scale(0.98);
 }
 
-/* Hop thong bao */
+/* 8. Hop thong bao phan anh */
 .feedback-card {
     margin-top: 24px;
     padding: 24px;
-    border: 2px solid #167d91;
+    border: 2px solid var(--green-main);
     border-radius: 16px;
-    background-color: #eaf8f5;
-    color: #173b35;
+    background: var(--green-light);
+    color: var(--text-main);
     animation: appear 0.35s ease-out;
 }
 
 .feedback-icon {
-    font-size: 40px;
     margin-bottom: 8px;
+    font-size: 40px;
 }
 
 .feedback-card h2 {
     margin-top: 0;
-    color: #125f53;
+    color: var(--green-dark);
 }
 
 .feedback-card p {
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 18px;
+    line-height: 1.8;
 }
 
 .feedback-card button {
-    background-color: #125f53;
+    background: var(--green-dark);
 }
 
 .feedback-card button:hover {
-    background-color: #0c493f;
+    background: #104a36;
 }
 
-/* Hieu ung xuat hien nhe */
+/* 9. Khu vuc ban do */
+.map-intro {
+    max-width: 760px;
+    color: var(--text-muted);
+    font-size: 18px;
+    line-height: 1.85;
+}
+
+main .map-placeholder {
+    margin-top: 26px;
+    padding: clamp(18px, 3vw, 30px);
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+    text-align: left;
+}
+
+main .map-placeholder .map-icon {
+    margin-bottom: 8px;
+    font-size: 42px;
+}
+
+main .map-placeholder h3 {
+    margin: 8px 0 12px;
+    font-size: clamp(21px, 3vw, 27px);
+}
+
+main .map-placeholder p {
+    line-height: 1.8;
+}
+
+.map-frame {
+    margin-top: 22px;
+    padding: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+    background: #edf6f0;
+    box-shadow: var(--shadow-soft);
+}
+
+.map-frame iframe {
+    display: block;
+    width: 100%;
+    height: 560px;
+    border: 0;
+    border-radius: 10px;
+}
+
+main .map-note {
+    margin-top: 24px;
+    padding: 20px;
+    border: 1px solid #f0dfb7;
+    border-left: 5px solid var(--warning-border);
+    border-radius: 12px;
+    color: #604c20;
+    background: var(--warning-bg);
+    line-height: 1.85;
+}
+
+/* 10. Cac the chuc nang trang chu */
+.home-intro {
+    padding: 24px 0 30px;
+    text-align: center;
+}
+
+.home-intro h2 {
+    margin-bottom: 14px;
+    font-size: clamp(27px, 4vw, 36px);
+}
+
+.home-intro p {
+    max-width: 680px;
+    margin: 0 auto 18px;
+    color: var(--text-muted);
+}
+
+.home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.home-actions .map-button {
+    min-height: 56px;
+    padding: 14px 24px;
+}
+
+.home-secondary {
+    color: var(--green-dark);
+    background: var(--white);
+}
+
+.home-secondary:hover {
+    color: var(--green-dark);
+    background: var(--green-light);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: 0 5px 18px rgba(25, 65, 45, 0.06);
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.feature-icon {
+    margin-bottom: 8px;
+    font-size: 36px;
+}
+
+.feature-card h3 {
+    margin: 6px 0;
+}
+
+.feature-card p {
+    flex: 1;
+    margin-top: 6px;
+}
+
+.feature-card a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    margin-top: 8px;
+    color: var(--green-dark);
+    font-weight: bold;
+    text-underline-offset: 4px;
+}
+
+.home-note {
+    margin-top: 28px;
+    padding: 20px;
+    border-left: 5px solid var(--green-main);
+    border-radius: 10px;
+    background: var(--green-light);
+}
+
+/* 11. Bo qua menu bang ban phim */
+.skip-link {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 1000;
+    padding: 12px 16px;
+    border: 2px solid var(--green-dark);
+    border-radius: 8px;
+    color: var(--green-dark);
+    background: var(--white);
+    transform: translateY(-160%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+/* 12. Hieu ung nhe */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes appear {
     from {
         opacity: 0;
@@ -179,200 +483,32 @@ nav a:hover {
     }
 }
 
-/* Ton trong nguoi khong thich hieu ung chuyen dong */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+/* 13. Toi uu man hinh nho */
+@media (max-width: 760px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        padding: 20px;
+    }
+
+    .home-actions {
+        flex-direction: column;
+    }
+
+    .home-actions .map-button {
+        width: 100%;
     }
 }
 
-/* =====================================
-   NANG CAP GIAO DIEN BAN DO KHONG RAO CAN
-   ===================================== */
-
-/* Mau sac va chuyen dong dong bo */
-:root {
-    --green-dark: #176b50;
-    --green-main: #21865d;
-    --green-light: #e8f5ee;
-    --text-main: #203449;
-    --text-muted: #5d7068;
-    --border-soft: #dcebe3;
-    --shadow-soft: 0 10px 30px rgba(23, 70, 50, 0.08);
-}
-
-/* Nen trang */
-body {
-    background: #f3f8f5;
-    color: var(--text-main);
-}
-
-/* Dau trang */
-header {
-    background: linear-gradient(135deg, #123e32, #21865d);
-    padding: 42px 20px;
-}
-
-header h1 {
-    font-size: clamp(28px, 4vw, 40px);
-    letter-spacing: -0.5px;
-}
-
-header p {
-    margin: 10px 0 0;
-    color: #e4f4eb;
-}
-
-/* Thanh dieu huong */
-nav {
-    position: relative;
-    gap: 8px;
-    padding: 14px 12px;
-    border-bottom: 1px solid var(--border-soft);
-}
-
-nav a {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-nav a:hover {
-    background: var(--green-light);
-    color: var(--green-dark);
-}
-
-nav a.active {
-    background: var(--green-dark);
-    color: #ffffff;
-}
-
-/* Khung noi dung */
-main {
-    margin: 32px auto;
-    padding: clamp(20px, 4vw, 36px);
-    border: 1px solid #e5eee8;
-    border-radius: 20px;
-    box-shadow: var(--shadow-soft);
-}
-
-h2 {
-    color: var(--green-dark);
-    line-height: 1.35;
-}
-
-/* Gioi thieu trang ban do */
-.map-intro {
-    max-width: 760px;
-    color: var(--text-muted);
-    line-height: 1.9;
-    font-size: 17px;
-}
-
-/* The ban do */
-main .map-placeholder {
-    margin-top: 26px;
-    padding: clamp(18px, 3vw, 30px);
-    background: #ffffff;
-    border: 1px solid var(--border-soft);
-    border-radius: 20px;
-    text-align: left;
-    box-shadow: var(--shadow-soft);
-}
-
-main .map-placeholder .map-icon {
-    font-size: 42px;
-    margin-bottom: 8px;
-}
-
-main .map-placeholder h3 {
-    color: var(--green-dark);
-    font-size: clamp(21px, 3vw, 27px);
-    line-height: 1.4;
-    margin: 8px 0 12px;
-}
-
-main .map-placeholder p {
-    line-height: 1.8;
-}
-
-/* Khung Google My Maps */
-.map-frame {
-    margin-top: 22px;
-    padding: 7px;
-    background: #edf6f0;
-    border: 1px solid var(--border-soft);
-    border-radius: 17px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(20, 65, 45, 0.09);
-}
-
-.map-frame iframe {
-    display: block;
-    width: 100%;
-    height: 560px;
-    border: 0;
-    border-radius: 11px;
-}
-
-/* Hop luu y */
-main .map-note {
-    margin-top: 24px;
-    padding: 20px 22px;
-    background: #fff8e8;
-    border: 1px solid #f0dfb7;
-    border-left: 5px solid #dba72f;
-    border-radius: 12px;
-    color: #604c20;
-    line-height: 1.85;
-}
-
-/* Nut bam */
-.map-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 13px 20px;
-    margin-top: 14px;
-    background: var(--green-dark);
-    color: #ffffff;
-    border-radius: 10px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.2s ease,
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
-}
-
-.map-button:hover {
-    background: #10513c;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 14px rgba(23, 107, 80, 0.2);
-}
-
-.map-button:focus-visible {
-    outline: 3px solid #83c9a5;
-    outline-offset: 4px;
-}
-
-/* Chan trang */
-footer {
-    margin-top: 35px;
-    padding: 25px 15px;
-    color: var(--text-muted);
-}
-
-/* Dien thoai va man hinh nho */
 @media (max-width: 600px) {
+    body {
+        font-size: 17px;
+    }
+
     header {
-        padding: 30px 16px;
+        padding: 28px 16px;
     }
 
     nav {
@@ -382,18 +518,13 @@ footer {
 
     nav a {
         padding: 10px 12px;
-        font-size: 14px;
     }
 
     main {
-        margin: 16px 10px;
+        width: calc(100% - 20px);
+        margin: 16px auto;
         padding: 19px 15px;
-        border-radius: 15px;
-    }
-
-    main .map-placeholder {
-        padding: 17px;
-        border-radius: 15px;
+        border-radius: 14px;
     }
 
     .map-frame {
@@ -408,43 +539,13 @@ footer {
         width: 100%;
         text-align: center;
     }
+
+    .feedback-card {
+        padding: 18px;
+    }
 }
 
-/* De doc, de bam va de tiep can hon */
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-size: 18px;
-    line-height: 1.75;
-}
-
-button,
-.map-button,
-nav a {
-    min-height: 48px;
-    transition:
-        background-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
-}
-
-button:hover,
-.map-button:hover {
-    transform: translateY(-2px);
-}
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-    outline: 3px solid #e0a526;
-    outline-offset: 4px;
-}
-
-/* Giam chuyen dong voi nguoi khong thich hieu ung */
+/* 14. Ton trong nguoi khong muon hieu ung */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -458,235 +559,18 @@ select:focus-visible {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-}
 
-/* Dien thoai */
-@media (max-width: 600px) {
-    body {
-        font-size: 17px;
-    }
-
-    button,
-    .map-button,
-    nav a {
-        min-height: 50px;
+    .feature-card:hover,
+    .map-button:hover,
+    nav a:hover {
+        transform: none;
     }
 }
 
-/* ======================================
-   BAN DO KHONG RAO CAN - GIAO DIEN MOI
-   ====================================== */
-
-:root {
-    --green-dark: #155b43;
-    --green-main: #217a55;
-    --green-light: #eaf5ee;
-    --text-main: #24352e;
-    --text-muted: #4b5d54;
-    --border-soft: #d7e6dc;
-    --shadow-soft: 0 8px 24px rgba(25, 65, 45, 0.09);
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    color: var(--text-main);
-    background: #f5f9f6;
-    font-size: 18px;
-    line-height: 1.75;
-}
-
-header {
-    background: linear-gradient(135deg, #124b38, #27845b);
-    color: white;
-    padding: 38px 20px;
-}
-
-header h1 {
-    line-height: 1.3;
-    letter-spacing: -0.4px;
-}
-
-header p {
-    line-height: 1.7;
-}
-
-nav {
-    gap: 8px;
-    padding: 12px;
-    background: white;
-    border-bottom: 1px solid var(--border-soft);
-}
-
-nav a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 10px 16px;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: background-color 0.2s ease,
-                color 0.2s ease;
-}
-
-nav a:hover {
-    background: var(--green-light);
-    color: var(--green-dark);
-}
-
-nav a.active {
-    background: var(--green-dark);
-    color: white;
-}
-
-main {
-    background: white;
-    border: 1px solid #e2ece5;
-    border-radius: 18px;
-    box-shadow: var(--shadow-soft);
-    padding: clamp(20px, 4vw, 36px);
-    margin-top: 28px;
-    margin-bottom: 28px;
-}
-
-h2,
-h3 {
-    color: var(--green-dark);
-    line-height: 1.4;
-}
-
-p,
-li {
-    line-height: 1.8;
-}
-
-a {
-    overflow-wrap: anywhere;
-}
-
-button,
-input,
-select,
-textarea {
-    font: inherit;
-}
-
-button,
-.map-button {
-    min-height: 50px;
-}
-
-button,
-.map-button,
-nav a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-button,
-.map-button {
-    transition: background-color 0.2s ease,
-                box-shadow 0.2s ease,
-                transform 0.2s ease;
-}
-
-button:hover,
-.map-button:hover {
-    transform: translateY(-2px);
-}
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 3px solid #bd8210;
-    outline-offset: 4px;
-}
-
-input,
-select,
-textarea {
-    max-width: 100%;
-}
-
+/* 15. Chan trang */
 footer {
+    margin-top: 30px;
     padding: 24px 16px;
     color: var(--text-muted);
     text-align: center;
 }
-
-/* Hieu ung xuat hien nhe */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-main {
-    animation: fadeInUp 0.45s ease-out both;
-}
-
-/* Toi uu cho dien thoai */
-@media (max-width: 600px) {
-    body {
-        font-size: 17px;
-    }
-
-    header {
-        padding: 28px 16px;
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav a {
-        padding: 10px 12px;
-    }
-
-    main {
-        margin: 16px 10px;
-        padding: 20px 16px;
-        border-radius: 14px;
-    }
-
-    .map-frame iframe {
-        height: 420px;
-    }
-
-    .map-button {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-/* Ton trong nguoi khong muon hieu ung chuyen dong */
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
