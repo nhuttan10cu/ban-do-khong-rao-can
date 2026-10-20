@@ -1015,3 +1015,160 @@ main a:not(.map-button):hover {
         transition: none;
     }
 }
+
+/* ===== GIAO DIEN BAN DO NANG CAP ===== */
+
+.map-panel {
+    margin-top: 28px;
+    padding: clamp(18px, 3vw, 32px);
+    background: linear-gradient(145deg, #ffffff, #f3faf5);
+    border: 1px solid #dcebe3;
+    border-radius: 24px;
+    box-shadow: 0 14px 38px rgba(23, 70, 50, 0.09);
+    animation: mapFadeIn 0.65s ease-out;
+}
+
+.map-heading {
+    max-width: 760px;
+    margin-bottom: 24px;
+}
+
+.map-eyebrow {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: #e3f4e9;
+    color: #176b50;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.map-heading h2 {
+    margin: 16px 0 10px;
+    color: #176b50;
+    font-size: clamp(26px, 4vw, 36px);
+    line-height: 1.3;
+}
+
+.map-heading p {
+    margin: 0;
+    color: #52675c;
+    line-height: 1.85;
+}
+
+.map-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+}
+
+.map-info-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 17px;
+    background: white;
+    border: 1px solid #dcebe3;
+    border-radius: 16px;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.map-info-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(23, 70, 50, 0.09);
+}
+
+.map-info-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #e8f5ee;
+    font-size: 25px;
+}
+
+.map-info-item strong,
+.map-info-item span:not(.map-info-icon) {
+    display: block;
+}
+
+.map-info-item strong {
+    margin-bottom: 4px;
+    color: #176b50;
+}
+
+.map-info-item div span {
+    color: #52675c;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.map-panel .map-frame {
+    margin-top: 20px;
+    padding: 8px;
+    background: white;
+    border: 1px solid #dcebe3;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(23, 70, 50, 0.12);
+}
+
+.map-panel .map-frame iframe {
+    display: block;
+    width: 100%;
+    height: 560px;
+    border: 0;
+    border-radius: 13px;
+}
+
+.map-caption {
+    margin: 16px 4px 0;
+    color: #52675c;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+@keyframes mapFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .map-info {
+        grid-template-columns: 1fr;
+    }
+
+    .map-panel {
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    .map-panel .map-frame iframe {
+        height: 430px;
+    }
+
+    .map-info-item {
+        padding: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .map-panel {
+        animation: none;
+    }
+
+    .map-info-item {
+        transition: none;
+    }
+}
