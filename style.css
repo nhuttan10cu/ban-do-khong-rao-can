@@ -409,3 +409,66 @@ footer {
         text-align: center;
     }
 }
+
+/* De doc, de bam va de tiep can hon */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+button,
+.map-button,
+nav a {
+    min-height: 48px;
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+button:hover,
+.map-button:hover {
+    transform: translateY(-2px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #e0a526;
+    outline-offset: 4px;
+}
+
+/* Giam chuyen dong voi nguoi khong thich hieu ung */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Dien thoai */
+@media (max-width: 600px) {
+    body {
+        font-size: 17px;
+    }
+
+    button,
+    .map-button,
+    nav a {
+        min-height: 50px;
+    }
+}
