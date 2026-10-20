@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bản đồ tương tác - Bản đồ không rào cản</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+.map-frame {
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.map-frame iframe {
+    display: block;
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    .map-frame iframe {
+        height: 380px;
+    }
+}
+
+        .map-intro {
+            line-height: 1.8;
+        }
+
+        .map-placeholder {
+            margin-top: 20px;
+            padding: 35px 20px;
+            background-color: #eaf4f5;
+            border: 2px dashed #167d91;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .map-placeholder .map-icon {
+            font-size: 56px;
+        }
+
+        .map-placeholder h3 {
+            color: #125f70;
+        }
+
+        .map-note {
+            padding: 14px;
+            margin-top: 18px;
+            background-color: #fff4db;
+            border-radius: 8px;
+            line-height: 1.7;
+        }
+
+        .map-button {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 18px;
+            background-color: #167d91;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .map-button:focus-visible,
+        .map-button:hover {
+            background-color: #125f70;
+            outline: 3px solid #b8e5e8;
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Bản đồ tương tác</h1>
+        <p>Tìm hiểu khả năng tiếp cận dành cho người đi xe lăn</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="ban-do.html" class="active">Bản đồ tương tác</a>
+        <a href="phan-anh.html">Gửi phản ánh</a>
+    </nav>
+
+    <main>
+        <h2>Khám phá bản đồ</h2>
+
+        <p class="map-intro">
+            Bản đồ này sẽ hỗ trợ người sử dụng xe lăn
+            tìm hiểu các địa điểm và những rào cản
+            có thể gặp phải quanh trường THPT Mang Thít.
+        </p>
+
+        
+<section class="map-placeholder">
+    <h3>🗺️ Bản đồ không rào cản</h3>
+
+    <p>
+        Khám phá bản đồ các tuyến đường và địa điểm
+        quanh trường THPT Mang Thít.
+    </p>
+
+    <div class="map-frame">
+        <iframe
+            src="https://www.google.com/maps/d/u/0/embed?mid=1ECjzIFNdis9-pxjk7Vhjd0A6L_FIK1Q&ehbc=2E312F"
+            title="Bản đồ hỗ trợ người đi xe lăn quanh THPT Mang Thít"
+            width="100%"
+            height="500"
+            style="border: 0;"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <p>
+        <small>
+            Lưu ý: Thông tin về khả năng tiếp cận cần được
+            xác minh thực tế trước khi sử dụng.
+        </small>
+    </p>
+</section>
+        <section class="map-note">
+            <strong>Lưu ý:</strong>
+            Không nên coi một địa điểm là phù hợp cho xe lăn
+            khi chưa kiểm tra thực tế. Thông tin về lối dốc,
+            vỉa hè và bề mặt đường cần được xác minh trước
+            khi đưa lên bản đồ.
+        </section>
+
+        <h2>Bạn muốn đóng góp thông tin?</h2>
+
+        <p>
+            Nếu phát hiện một rào cản cần ghi nhận,
+            bạn có thể mở trang gửi phản ánh.
+        </p>
+
+        <a class="map-button" href="phan-anh.html">
+            Đi đến trang gửi phản ánh
+        </a>
+    </main>
+
+    <footer>
+        Dự án Bản đồ không rào cản | THPT Mang Thít
+    </footer>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi phản ánh - Bản đồ không rào cản</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .report-form label {
+            display: block;
+            margin-top: 16px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .report-form input,
+        .report-form select,
+        .report-form textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        .report-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .report-form button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #167d91;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .report-form button:hover {
+            background-color: #125f70;
+        }
+
+        .notice {
+            padding: 12px;
+            background-color: #e1f5f2;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        #result {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Gửi phản ánh rào cản</h1>
+        <p>Cùng ghi nhận những khó khăn trong việc di chuyển</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="ban-do.html">Bản đồ tương tác</a>
+        <a href="phan-anh.html" class="active">Gửi phản ánh</a>
+    </nav>
+
+    <main>
+        <h2>Thông tin phản ánh</h2>
+
+        <p>
+            Hãy cung cấp thông tin về địa điểm có rào cản
+            đối với người sử dụng xe lăn.
+        </p>
+
+        <p class="notice">
+            Đây là biểu mẫu thử nghiệm. Thông tin bạn nhập
+            chưa được gửi hoặc lưu lên máy chủ.
+        </p>
+
+        <form class="report-form" id="reportForm">
+            <label for="location">Vị trí rào cản *</label>
+            <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="Ví dụ: Đoạn đường gần..."
+                required
+            >
+
+            <label for="type">Loại rào cản *</label>
+            <select id="type" name="type" required>
+                <option value="">-- Chọn loại rào cản --</option>
+                <option value="sidewalk">Vỉa hè bị chắn</option>
+                <option value="steps">Bậc thềm không có lối dốc</option>
+                <option value="narrow">Lối đi hẹp</option>
+                <option value="surface">Bề mặt đường khó di chuyển</option>
+                <option value="other">Khác</option>
+            </select>
+
+            <label for="description">Mô tả vấn đề *</label>
+            <textarea
+                id="description"
+                name="description"
+                placeholder="Mô tả điều bạn quan sát được..."
+                required
+            ></textarea>
+
+            <label for="date">Ngày ghi nhận *</label>
+            <input
+                type="date"
+                id="date"
+                name="date"
+                required
+            >
+
+            <label for="photo">Ảnh minh chứng (nếu có)</label>
+            <input
+                type="file"
+                id="photo"
+                name="photo"
+                accept="image/*"
+            >
+
+            <button type="submit">Kiểm tra phản ánh</button>
+        </form>
+
+        <p id="result" role="status"></p>
+<section
+    id="feedbackBox"
+    class="feedback-card"
+    role="status"
+    aria-live="polite"
+    tabindex="-1"
+    hidden
+>
+    <div class="feedback-icon" aria-hidden="true">ℹ️</div>
+
+    <h2 id="feedbackTitle">Thông báo</h2>
+
+    <p id="feedbackMessage"></p>
+
+    <button type="button" id="closeFeedback">
+        Đóng thông báo
+    </button>
+</section>
+
+    </main>
+
+    <footer>
+        Dự án Bản đồ không rào cản | THPT Mang Thít
+    </footer>
+
+    <script>
+       
+const form = document.getElementById("reportForm");
+const feedbackBox = document.getElementById("feedbackBox");
+const feedbackTitle = document.getElementById("feedbackTitle");
+const feedbackMessage = document.getElementById("feedbackMessage");
+const closeFeedback = document.getElementById("closeFeedback");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    feedbackBox.hidden = false;
+
+    feedbackTitle.textContent = "Bạn đã điền xong biểu mẫu!";
+    feedbackMessage.textContent =
+        "Cảm ơn bạn đã cung cấp thông tin. " +
+        "Đây là bản thử nghiệm nên phản ánh chưa được gửi " +
+        "hoặc lưu trực tuyến. Bạn có thể đóng thông báo " +
+        "hoặc kiểm tra lại thông tin đã nhập.";
+
+    feedbackBox.scrollIntoView({
+        behavior: "auto",
+        block: "center"
+    });
+
+    feedbackBox.focus();
+});
+
+closeFeedback.addEventListener("click", function() {
+    feedbackBox.hidden = true;
+});
+
+    </script>
+</body>
+</html>
