@@ -129,8 +129,31 @@
             <button type="submit">Kiểm tra phản ánh</button>
         </form>
 
-        <p id="result" role="status"></p>
-<section
+        
+<p id="result" role="status"></p>
+
+<div id="feedbackOverlay" class="feedback-overlay" hidden>
+    <section
+        id="feedbackBox"
+        class="feedback-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="feedbackTitle"
+        aria-describedby="feedbackMessage"
+        tabindex="-1"
+    >
+        <div class="feedback-icon" aria-hidden="true">✅</div>
+
+        <h2 id="feedbackTitle">Bạn đã điền xong biểu mẫu!</h2>
+
+        <p id="feedbackMessage"></p>
+
+        <button type="button" id="closeFeedback">
+            Đóng thông báo
+        </button>
+    </section>
+</div>
+
    
 <div id="feedbackOverlay" class="feedback-overlay" hidden>
     <section
