@@ -1172,3 +1172,47 @@ main a:not(.map-button):hover {
         transition: none;
     }
 }
+
+/* Chu thich mau sac tren ban do */
+.map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 24px;
+    margin: 18px 0;
+    padding: 16px 20px;
+    background: #ffffff;
+    border: 1px solid #dce5eb;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.legend-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.legend-dot.green {
+    background-color: #16a34a;
+}
+
+.legend-dot.red {
+    background-color: #dc2626;
+}
+
+.legend-dot.yellow {
+    background-color: #facc15;
+    border: 1px solid #d4a900;
+}
+
